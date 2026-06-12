@@ -35,7 +35,7 @@ export default function IndexPage() {
       <Header />
       <main className="kp-main">
         <div className="notes-index-intro">
-          <h1 className="notes-index-title">Notes</h1>
+          <h1 className="notes-index-title">Note</h1>
           <p className="notes-index-sub">
             Interactive technical notes — each one is a working demo you can step through, not just text.
           </p>

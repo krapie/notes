@@ -1,6 +1,6 @@
 {
-  "name": "notes · kevinprk",
-  "short_name": "notes",
+  "name": "note · kevinprk",
+  "short_name": "note",
   "icons": [
     { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
   ],
