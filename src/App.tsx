@@ -7,14 +7,17 @@ import VpcPage from './pages/VpcPage'
 
 type Theme = 'light' | 'dark'
 
-const ThemeCtx = createContext<{ theme: Theme; toggle: () => void }>({
+const ThemeCtx = createContext<{ theme: Theme; toggle: () => void; embed: boolean }>({
   theme: 'light',
   toggle: () => {},
+  embed: false,
 })
 
 export function useTheme() { return useContext(ThemeCtx) }
 
 export default function App() {
+  const embed = new URLSearchParams(window.location.search).get('embed') === '1'
+
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem('kp-theme')
     if (stored === 'light' || stored === 'dark') return stored
@@ -29,7 +32,7 @@ export default function App() {
   function toggle() { setTheme(t => t === 'dark' ? 'light' : 'dark') }
 
   return (
-    <ThemeCtx.Provider value={{ theme, toggle }}>
+    <ThemeCtx.Provider value={{ theme, toggle, embed }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IndexPage />} />

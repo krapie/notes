@@ -7,7 +7,8 @@ interface HeaderProps {
 }
 
 export default function Header({ backLabel, backHref, title }: HeaderProps) {
-  const { theme, toggle } = useTheme()
+  const { theme, toggle, embed } = useTheme()
+  if (embed) return null
 
   return (
     <header className="kp-header">
