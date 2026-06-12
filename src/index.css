@@ -342,22 +342,22 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .btn-secondary:disabled { opacity: 0.35; cursor: not-allowed; }
 
 /* ── Index page ─────────────────────────────────────────────── */
-.notes-index-intro {
+.note-index-intro {
   margin-bottom: var(--kp-space-7);
 }
-.notes-index-title {
+.note-index-title {
   font-size: var(--kp-text-2xl);
   font-weight: var(--kp-weight-semi);
   letter-spacing: var(--kp-tracking-tight);
   margin-bottom: var(--kp-space-2);
   color: var(--kp-fg);
 }
-.notes-index-sub {
+.note-index-sub {
   font-size: var(--kp-text-sm);
   color: var(--kp-fg-2);
   line-height: var(--kp-leading-relaxed);
 }
-.notes-list {
+.note-list {
   display: flex;
   flex-direction: column;
 }

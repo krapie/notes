@@ -34,13 +34,13 @@ export default function IndexPage() {
     <div className="app">
       <Header />
       <main className="kp-main">
-        <div className="notes-index-intro">
-          <h1 className="notes-index-title">Note</h1>
-          <p className="notes-index-sub">
+        <div className="note-index-intro">
+          <h1 className="note-index-title">Note</h1>
+          <p className="note-index-sub">
             Interactive technical notes — each one is a working demo you can step through, not just text.
           </p>
         </div>
-        <div className="notes-list">
+        <div className="note-list">
           {NOTES.map(note => (
             <Link key={note.id} to={`/${note.id}`} className="note-row">
               <div className="note-row-main">
