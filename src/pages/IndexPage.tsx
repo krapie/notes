@@ -4,6 +4,14 @@ import Footer from '../components/Footer'
 
 const NOTES = [
   {
+    id: 'mtr',
+    title: 'Reading MTR output',
+    date: '2026-06-13',
+    read: '3 min',
+    tags: ['networking', 'troubleshooting'],
+    blurb: 'How to distinguish ICMP deprioritization (a false alarm) from real packet loss. Includes an interactive MTR table with two annotated scenarios.',
+  },
+  {
     id: 'tcp',
     title: 'All about TCP',
     date: '2026-06-13',

@@ -4,6 +4,7 @@ import IndexPage from './pages/IndexPage'
 import TcpPage from './pages/TcpPage'
 import ClosPage from './pages/ClosPage'
 import VpcPage from './pages/VpcPage'
+import MtrPage from './pages/MtrPage'
 
 type Theme = 'light' | 'dark'
 
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="/tcp" element={<TcpPage />} />
           <Route path="/clos" element={<ClosPage />} />
           <Route path="/vpc" element={<VpcPage />} />
+          <Route path="/mtr" element={<MtrPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeCtx.Provider>
