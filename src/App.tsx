@@ -16,9 +16,12 @@ const ThemeCtx = createContext<{ theme: Theme; toggle: () => void; embed: boolea
 export function useTheme() { return useContext(ThemeCtx) }
 
 export default function App() {
-  const embed = new URLSearchParams(window.location.search).get('embed') === '1'
+  const params = new URLSearchParams(window.location.search)
+  const embed = params.get('embed') === '1'
+  const themeParam = params.get('theme')
 
   const [theme, setTheme] = useState<Theme>(() => {
+    if (themeParam === 'light' || themeParam === 'dark') return themeParam
     const stored = localStorage.getItem('kp-theme')
     if (stored === 'light' || stored === 'dark') return stored
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -28,6 +31,16 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('kp-theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.data?.type === 'kp-theme' && (e.data.theme === 'light' || e.data.theme === 'dark')) {
+        setTheme(e.data.theme as Theme)
+      }
+    }
+    window.addEventListener('message', handler)
+    return () => window.removeEventListener('message', handler)
+  }, [])
 
   function toggle() { setTheme(t => t === 'dark' ? 'light' : 'dark') }
 
